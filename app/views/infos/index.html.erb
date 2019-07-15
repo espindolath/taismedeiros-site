@@ -1,0 +1,47 @@
+<div class="img-header">
+  <%= image_tag("header.png", :alt => "Header") %>
+</div>
+
+<section class="box-infos">
+  <div class="inner-infos">
+    <% @infos.each do |info| %>
+
+      <div class="photo-perfil">
+        <% if info.photo.url.present? %>
+          <span class="photo-img"><%= image_tag(info.photo.url) %></span>
+        <% end %>
+
+        <div class="box-social">
+          <span class="social">
+            <%= link_to info.instagram, :title => "Instagram",target: :_blank do %>
+              <%= image_tag("instagram-2.png", :alt => "Instagram") %>
+            <% end %>
+          </span>
+
+          <span class="social">
+            <%= link_to info.wpp, :title => "Whatsapp",target: :_blank do %>
+              <%= image_tag("whatsapp-2.png", :alt => "Whatsapp") %>
+            <% end %>
+          </span>
+
+          <span class="social">
+            <%= link_to info.facebook, :title => "Facebook",target: :_blank do %>
+              <%= image_tag("facebook-2.png", :alt => "Facebook") %>
+            <% end %>
+          </span>
+        </div>
+      </div>
+      
+      <div class="infos-perfil">
+        <!--<div><%= info.name %></div> -->
+        <div><%= info.desc %></div>
+
+        <div><strong><%= info.email %></strong></div>
+
+        <div>
+          <a href="tel:<%= info.tel %>"><strong><%= info.tel %></strong></a>
+        </div>
+      </div>
+    <% end %>
+  </div>
+</section>

@@ -1,0 +1,5 @@
+<h1><%=t('utils.editing')%> <%=t('utils.contact')%></h1>
+
+<%= render 'form', contact: @contact %>
+
+<%= link_to t('utils.back'), admin_contacts_path, class: "link link-back" %>

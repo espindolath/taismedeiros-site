@@ -1,0 +1,69 @@
+<p id="notice"><%= notice %></p>
+
+<div class="btn btn-save">
+  <%= link_to t('utils.new'), new_admin_job_path %>
+</div>
+
+<h1><%=t('utils.jobs')%></h1>
+
+<div class="admin-items">
+  <% @jobs.each do |job| %>
+    <div class="item-out">
+      <div class="item">
+        <strong>Título</strong>
+        <p><%= job.title %></p>
+      </div>
+
+       <div class="item multiple-image">
+        <% job.covers.each do |cover| %>
+          <div class="img">
+            <%= image_tag(cover.url) %>
+          </div>
+        <% end %>
+      </div>
+
+      <div class="item">
+        <strong>Descrição</strong>
+        <p><%= job.desc %></p>
+      </div>
+
+      <div class="item">
+        <strong>Cliente</strong>
+        <p><%= job.client %></p>
+      </div>
+
+      <div class="item">
+        <strong>Mês</strong>
+        <p><%= job.month %></p>
+      </div>
+
+      <div class="item">
+        <strong>Ano</strong>
+        <p><%= job.year %></p>
+      </div>
+
+      <div class="item">
+        <strong>Palavras-chave</strong>
+        <p><%= job.words %></p>
+      </div>
+
+      
+      <div class="item multiple-image">
+        <% job.images.each do |image| %>
+          <div class="img">
+            <%= image_tag(image.url) %>
+          </div>
+        <% end %>
+      </div>
+
+
+      <div class="item">
+        <%= link_to t('utils.show'), admin_job_path(job), class: "link link-show"  %>
+
+        <%= link_to t('utils.edit'), edit_admin_job_path(job), class: "link link-edit"  %>
+
+        <%= link_to t('utils.delete'), admin_job_path(job), method: :delete, data: { confirm: 'Tem certeza?' }, class: "link link-delete"  %>
+      </div>
+    </div>
+  <% end %>
+</div>

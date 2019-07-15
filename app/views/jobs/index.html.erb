@@ -1,0 +1,14 @@
+<div class="jobs-box">
+  <% @jobs.each do |job| %>
+    <%= link_to job_path(job), :title => "Job" do %>
+      <div class="item-job">
+        <div class="cover">
+         <% job.images.take(1).each do |image| %>
+            <%= image_tag(image.url) %>
+          <% end %>
+          <h2 class="title"><%= job.title %></h2>
+        </div>
+      </div>
+    <% end %>
+  <% end %>  
+</div>

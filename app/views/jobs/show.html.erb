@@ -1,0 +1,29 @@
+<div class="show-job">
+  <div class="job-covers">
+   <% @job.covers.each do |cover| %>
+      <%= image_tag(cover.url) %>
+    <% end %>
+  </div>
+
+  <section class="job">
+    <header>
+      <h1><%= @job.title %></h1>
+      <h2><%= @job.client %></h2>
+      <p class="year"><%= @job.month %>/<%= @job.year %></p>
+    </header>
+
+    <div class="content-job">
+      <p><%= @job.desc %></p>
+    </div>
+  </section>
+
+  <div class="job-images">
+   <% @job.images.each do |image| %>
+      <%= image_tag(image.url) %>
+    <% end %>
+  </div>
+
+  <div class="words">
+    <%= @job.words %>
+  </div>
+</div>

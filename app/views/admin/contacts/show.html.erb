@@ -1,0 +1,28 @@
+<p id="notice"><%= notice %></p>
+<div class="admin-items">
+	<div class="item">
+	  <strong>Nome:</strong>
+	  <p><%= @contact.name %></p>
+	</div>
+
+	<div class="item">
+	  <strong>E-mail</strong>
+	  <p><%= @contact.email %></p>
+	</div>
+
+	<div class="item">
+	  <strong>Telefone</strong>
+	  <p><%= @contact.tel %></p>
+	</div>
+
+	<div class="item">
+	  <strong>Mensagem</strong>
+	  <p><%= @contact.messsage %></p>
+	</div>
+	
+	<div class="btn btn-save">
+		<%= link_to t('utils.edit'), edit_admin_contact_path(@contact) %>
+	</div>
+	
+	<%= link_to t('utils.back'), admin_contacts_path, class: "link link-back"  %>
+</div>

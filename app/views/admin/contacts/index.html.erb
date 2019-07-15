@@ -1,0 +1,25 @@
+<p id="notice"><%= notice %></p>
+
+<h1><%=t('utils.contacts')%></h1>
+
+<div class="admin-items">
+  <% @contacts.each do |contact| %>
+    <div class="item-out">
+      <div class="item"><%= contact.name %></div>
+      <div class="item"><%= contact.email %></div>
+      <div class="item"><%= contact.tel %></div>
+      <div class="item"><%= contact.messsage %></div>
+
+      <div class="item">
+        <%= link_to t('utils.show'), admin_contact_path(contact), class: "link link-show" %>
+
+        <%= link_to t('utils.edit'), edit_admin_contact_path(contact), class: "link link-edit" %>
+
+        <%= link_to t('utils.delete'), admin_contact_path(contact), method: :delete, data: { confirm: 'Tem certeza?' }, class: "link link-delete" %>
+      </div>
+    </div>
+  <% end %>
+</div>
+<div class="btn btn-save">
+  <%= link_to t('utils.new'), new_admin_contact_path %>
+</div>

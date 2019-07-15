@@ -1,0 +1,38 @@
+<p id="notice"><%= notice %></p>
+
+<h1><%=t('utils.infos')%></h1>
+
+<div class="admin-items">
+  <% @infos.each do |info| %>
+    <div class="item"><span class="title"><%= info.name %></span></div>
+
+    <div class="item">
+      <% if info.photo.url.present? %>
+        <div class="image">
+          <%= image_tag(info.photo.url) %>
+        </div>
+      <% end %>
+    </div>
+
+     <div class="item">
+      <% if info.logo.url.present? %>
+        <div class="image">
+          <%= image_tag(info.logo.url) %>
+        </div>
+      <% end %>
+    </div>
+
+    <div class="item"><%= info.desc %></div>
+    <div class="item"><%= info.email %></div>
+    <div class="item"><%= info.tel %></div>
+    <div class="item"><%= info.wpp %></div>
+    <div class="item"><%= info.behance %></div>
+    <div class="item"><%= info.instagram %></div>
+    <div class="item"><%= info.facebook %></div>
+
+    <div class="btn btn-save">
+      <%= link_to t('utils.edit'), edit_admin_info_path(info) %>
+    </div>
+  <% end %>  
+</div>
+    

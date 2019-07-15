@@ -1,0 +1,548 @@
+html, body, div, span, applet, object, iframe,
+h1, h2, h3, h4, h5, h6, p, blockquote, pre,
+a, abbr, acronym, address, big, cite, code,
+del, dfn, em, img, ins, kbd, q, s, samp,
+small, strike, strong, sub, sup, tt, var,
+b, u, i, center,
+dl, dt, dd, ol, ul, li,
+fieldset, form, label, legend,
+table, caption, tbody, tfoot, thead, tr, th, td,
+article, aside, canvas, details, embed, 
+figure, figcaption, footer, header, hgroup, 
+menu, nav, output, ruby, section, summary,
+time, mark, audio, video {
+  margin: 0;
+  padding: 0;
+  border: 0;
+  font-size: 100%;
+  font: inherit;
+  vertical-align: baseline;
+}
+/* HTML5 display-role reset for older browsers */
+article, aside, details, figcaption, figure, 
+footer, header, hgroup, menu, nav, section {
+  display: block;
+}
+body {
+  line-height: 1;
+}
+ol, ul {
+  list-style: none;
+}
+blockquote, q {
+  quotes: none;
+}
+blockquote:before, blockquote:after,
+q:before, q:after {
+  content: '';
+  content: none;
+}
+table {
+  border-collapse: collapse;
+  border-spacing: 0;
+}
+*{
+  box-sizing: border-box;
+}
+
+@import url('https://fonts.googleapis.com/css?family=Roboto+Slab&display=swap');
+
+body{
+  font-family: 'Roboto Slab', sans-serif;
+  font-size: 62.5%;
+  overflow-x: hidden;
+}
+
+
+$color-1:#58167d;
+$color-2:#2adb9b;
+$color-3:#ffffff;
+$color-4:#504f51;
+$color-5:#212121;
+$color-6:#fafafa;
+
+$top-distance: 5em;
+
+$regular-distance:2em;
+
+.content-admin{
+  display: flex;
+  background-color: #f3eded;
+
+  aside{
+    width: 35%;
+    max-width: 200px;
+    min-height: 100%;
+    min-height: 100vh;
+    background-color: $color-1;
+    border-right: 5px solid $color-2;
+    padding-top: $top-distance;
+
+    nav{
+      margin-left:$regular-distance;
+    }
+
+    li{
+      display: block;
+      padding: 1.3em 1em;
+    }
+
+    a{
+      color:$color-3;
+      text-decoration: none;
+      font-size: 1.4em;
+    }
+  }
+
+  .inner-admin{
+    width: 65%;
+    margin-left:4em;
+    padding: $regular-distance;
+    padding-top: $top-distance;
+
+    h1{
+      font-size: 2em;
+      color: $color-2;
+      text-transform: uppercase;
+      font-weight: bold;
+      margin-bottom: 1em;
+    }
+
+    p{
+      color:$color-4;
+      font-size: 1.2em;
+      line-height: 150%;
+    }
+
+    .welcome{
+      width: 40%;
+    }
+
+    .admin-list{
+      font-size: 1.2em;
+      color: $color-4;
+      line-height: 150%;
+    }
+  }
+
+  .btn, .link{
+    margin: 1em 0em;
+  }
+
+  .btn{
+    display: inline-block;
+    border:0;
+    padding: 0.5em 1em;
+    text-decoration: none;
+
+    a{
+      text-decoration: none;
+    }
+  }
+
+  .btn-save{
+    background-color: $color-2;
+    color: $color-3;
+    font-size: 1.5em;
+    margin-top: $regular-distance;
+    cursor: pointer;
+
+    a{
+      color: $color-3;
+    }
+  }
+  
+  
+  .link{
+    color:$color-1;
+    text-decoration: none;
+    font-size: 1em;
+    font-weight: bold;
+    border: 1px solid $color-1;
+    display: inline-block;
+    padding: 0.2em 0.5em;
+    margin-right:0.5em;
+  }
+
+  .link-back{
+    font-size: 1.5em;
+    border:0px;
+    display: block;
+  }
+
+  .admin-items{
+    .item-out{
+      border-bottom: 1px solid $color-2;
+      padding-bottom:1em;
+      margin-bottom: $regular-distance;
+    }
+
+    .multiple-image{
+      width: 100%;
+      display: flex;
+      flex-wrap: wrap;
+
+      .img{
+        width: 30%;
+        margin-right: 0.5em;
+        margin-bottom: 0.5em;
+
+        img{
+          width: 100%;
+        }
+      }
+    }
+
+    .item{
+      margin: 1em 0em;
+      line-height: 150%;
+      font-size: 1.2em;
+      color: $color-4;
+
+      .title{
+        font-size: 1.5em;
+        margin-bottom: 1.5em;
+      }
+
+      .image{
+        img{
+          width: 30%;
+        }
+      }
+
+      strong{
+        color:$color-1;
+        font-weight: bold;
+        display: inline-block;
+      }
+    }
+
+    .input{
+      label{
+        color: $color-4;
+        font-size: 1.4em;
+        display: block;
+        margin: $regular-distance 0em 0.7em;
+      }
+
+      img{
+        width: 20%;
+        margin-bottom: 1em;
+      }
+
+      input, textarea, select{
+        width: 80%;
+        font-family: 'Roboto Slab', sans-serif;
+        color: $color-4;
+        border:1px solid $color-2;
+        padding: 1em;
+        border-radius: 2;
+      }
+
+      textarea{
+        height: 20em;
+      }
+    }
+  }
+
+  #notice{
+    color: $color-3;
+    opacity: 0.7;
+    position: absolute;
+    top: 10px;
+    left: 2em;
+    z-index: 2;
+  }
+
+}
+
+.content-user{
+  @media (min-width: 768px){
+    background-color: $color-5;
+  }  
+   
+  .main-header{
+    background-color: $color-3;
+    display: flex;
+    align-items: center;
+    justify-content: space-between;
+    padding: $regular-distance 3em;
+
+    .logo{
+      width: 10%;
+      display: inline-block;
+
+      img{
+        width: 100%;
+      }
+    }
+
+    li{
+      display: inline-block;
+      margin-left: $regular-distance;
+    }
+
+    a{
+      color:$color-5;
+      text-transform: uppercase;
+      text-decoration: none;
+      font-weight: bold;
+      font-size: 1.3em;
+
+      &:hover{
+        color:$color-1;
+      }
+    }
+  }
+
+  .main-footer{
+    background-color: $color-5;
+    color:$color-3;
+    padding: $regular-distance 0em;
+    text-align: center;
+    margin-top: $regular-distance;
+
+    a, span{
+      color:$color-3;
+      text-decoration: none;
+      text-transform: uppercase;
+      font-weight: bold;
+      font-size:1.3em;
+    }
+
+    .name{
+      margin: 1em 0em;
+      display: inline-block;
+    }
+
+    .social{
+      li{
+        display: inline-block;
+        margin: 1em;
+      }
+
+      img{
+        width: $regular-distance;
+      }
+    }
+  }
+
+  .jobs-box{
+      a{
+        width: 100%;
+        text-decoration: none;
+      }
+
+      img{
+        width: 100%;
+      }
+  }
+
+  .item-job{
+
+    .title{
+      width: 100%;
+      position: absolute;
+      background:rgba(255,255,255, 0.5);
+      color:$color-5;
+      font-weight: bold;
+      font-size: 1.2em;
+      text-align: center;
+      padding: 1em;
+      bottom: 1em;
+      opacity: 0;
+    }
+
+    .cover{
+      position: relative;
+    }
+  }
+
+  @media (min-width: 768px){
+    .jobs-box{
+      display: flex;
+      flex-wrap: wrap;
+      background-color: $color-5;
+
+      a{
+        width: 25%;
+        position: relative;
+      }
+    }
+
+    .item-job{
+      background-color: $color-3;
+
+      .title{
+        transition: .5s ease;
+        opacity: 0;
+        top: 50%;
+        left: 50%;
+        transform: translate(-50%, -50%);
+        -ms-transform: translate(-50%, -50%);
+        text-align: center;
+        color:$color-3;
+        font-weight: bold;
+        text-transform: uppercase;
+        font-size: 1.2em;
+        text-align: center;
+        line-height: 150%;
+        padding: 0.5em;
+        bottom: initial;
+        background-color: transparent;
+      }
+
+      .cover{
+        display: flex;
+        align-items: center;
+        justify-content: center;
+        background-color: $color-5;
+
+        img{
+          width: 100%;
+          transition: .5s ease;
+        }
+
+        &:hover{
+          .title{
+            opacity: 1;
+          }
+
+          img{
+            opacity: 0.2;
+          }
+        }
+      }
+    }
+  }
+
+  .show-job{
+    background-color: $color-3;
+    display: inline-block;
+
+    .job{
+      padding: $regular-distance;
+
+      @media (min-width: 768px){
+        width: 50%;
+        max-width: 700%;
+        margin: 0 auto;
+      }
+
+      header{
+        color:$color-4;
+        font-size: 2em;
+        line-height: 150%;
+        font-weight: bold;
+        text-transform: uppercase;
+        margin-bottom: $regular-distance;
+      }
+
+      .content-job{
+        p{
+          font-size: 1.7em;
+          line-height:150%;
+
+          @media (min-width: 768px){
+            width: 60%;
+          }
+        }
+      }
+    }
+  
+  .job-images{
+    margin: 1.5em 0em;
+
+    img{
+      margin: 1.5em 0em;
+    }
+  }
+
+  .job-images, .job-covers{
+      width: 100%;
+
+      img{
+        width: 100%;
+        display: inline-block;
+      }
+    }
+
+    .words{
+      background-color: $color-6;
+      color:$color-4;
+      padding: 1em;
+      font-size: 1.2em;
+      text-transform: capitalize;
+      text-align: center;
+    }
+  }
+
+  .img-header{
+    display: none;
+
+    @media (min-width: 768px){
+      display: inline-block;
+    }
+  }
+
+  .box-infos{
+    background-color: $color-3;
+    padding: $regular-distance; 
+
+    @media (min-width: 768px){
+      padding: $regular-distance*4  $regular-distance; 
+
+      .inner-infos{
+        width: 50%;
+        margin: 0 auto;
+        display: flex;
+        justify-content: space-between;
+      }
+    }
+
+    .photo-perfil{
+      width: 100%;
+
+      @media (min-width: 768px){
+        width: 30%;
+      }
+
+      .photo-img{
+
+        img{
+          width: 100%;
+        }
+      }
+    }
+
+    .box-social{
+      text-align: center;
+      margin: 1em;
+
+      .social{
+        display: inline-block;
+        margin: 0.5em;
+      }
+    }
+
+    .infos-perfil{
+      @media (min-width: 768px){
+        width: 60%;
+      }
+
+      color:$color-4;
+      font-size: 1.5em;
+      line-height: 150%;
+
+      strong{
+        font-weight: bold;
+        margin: 0.5em 0em;
+        display: inline-block;
+      }
+
+      a{
+        color:$color-4;
+      }
+    }
+  }
+}

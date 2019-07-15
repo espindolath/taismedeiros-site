@@ -1,0 +1,59 @@
+<p id="notice"><%= notice %></p>
+
+<div class="admin-items">
+  <div class="item">
+    <strong>Título:</strong>
+    <p><%= @job.title %></p>
+  </div>
+
+  <div class="item multiple-image">
+   <% @job.covers.each do |cover| %>
+      <div class="img">
+        <%= image_tag(cover.url) %>
+      </div>
+    <% end %>
+  </div>  
+
+  <div class="item">
+    <strong>Descrição:</strong>
+    <p><%= @job.desc %></p>
+  </div>
+
+  <div class="item">
+    <strong>Cliente:</strong>
+    <p><%= @job.client %></p>
+  </div>
+
+  <div class="item">
+    <strong>Mês:</strong>
+    <p><%= @job.month %></p>
+  </div>
+
+  <div class="item">
+    <strong>Ano:</strong>
+    <p><%= @job.year %></p>
+  </div>
+
+  <div class="item">
+    <strong>Palavras-chave:</strong>
+    <p><%= @job.words %></p>
+  </div>
+
+  <div class="item multiple-image">
+   <% @job.images.each do |image| %>
+      <div class="img">
+        <%= image_tag(image.url) %>
+      </div>
+    <% end %>
+  </div>
+  
+  <div class="btn btn-save">
+    <%= link_to t('utils.edit'), edit_admin_job_path(@job) %>
+  </div>
+
+  <div class="btn btn-save">
+  <%= link_to t('utils.new'), new_admin_job_path %>
+</div>
+
+  <%= link_to t('utils.back'), admin_jobs_path, class: "link link-back"   %>
+</div>

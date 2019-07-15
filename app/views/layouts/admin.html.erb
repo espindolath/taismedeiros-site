@@ -1,0 +1,39 @@
+<!DOCTYPE html>
+<html>
+  <head>
+    <title>Admin</title>
+    <%= csrf_meta_tags %>
+
+    <%= stylesheet_link_tag    'application', media: 'all', 'data-turbolinks-track': 'reload' %>
+    <%= javascript_include_tag 'application', 'data-turbolinks-track': 'reload'%>
+
+    <meta name="viewport" content="target-densitydpi=device-dpi, width=device-width, initial-scale=1.0, minimum-scale=1.0, maximum-scale=1.0, user-scalable=no, minimal-ui"/>
+  </head>
+
+  <body>
+    <div class="content-admin">
+      <aside>
+        <nav>
+          <ul>
+            <li>
+              <%= link_to admin_infos_path, :title => "Sobre" do %>
+                Sobre
+              <% end %>
+            </li>
+
+            <li>
+              <%= link_to admin_jobs_path, :title => "Cases" do %>
+                Cases
+              <% end %>
+            </li>
+
+            <li><%= link_to "Logout", destroy_user_session_path, method: :delete %></li>
+          </ul>
+        </nav>
+      </aside>
+      <div class="inner-admin">
+        <%= yield %>
+      </div>
+    </div>
+  </body>
+</html>

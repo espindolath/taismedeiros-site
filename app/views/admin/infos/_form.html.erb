@@ -1,0 +1,59 @@
+<div class="admin-items">
+  <%=simple_form_for [:admin, @info], :validate=>true do |f| %>
+    <% if info.errors.any? %>
+      <div id="error_explanation">
+        <h2><%= pluralize(info.errors.count, "error") %> prohibited this info from being saved:</h2>
+
+        <ul>
+        <% info.errors.full_messages.each do |message| %>
+          <li><%= message %></li>
+        <% end %>
+        </ul>
+      </div>
+    <% end %>
+
+    <%= f.input :name, label:'Nome'  %>
+    
+    <div class="input">
+      <label>Foto</label>
+      <% if @info.photo.url.present? %>
+        <div class="image">
+          <%= image_tag(@info.photo.url) %>
+        </div>
+      <% end %>
+    
+      <%= f.file_field :photo %>
+    </div>
+
+    <div class="input">
+      <label>Logo</label>
+      <% if @info.logo.url.present? %>
+        <div class="image">
+          <%= image_tag(@info.logo.url) %>
+        </div>
+      <% end %>
+    
+      <%= f.file_field :logo %>
+    </div>
+
+    <%= f.input :desc, label:'Descrição'  %>
+
+    <%= f.input :email, label:'E-mail'  %>
+
+    <%= f.input :tel, label:'Telefone'  %>
+
+    <%= f.input :wpp, label: 'Link do WhatsApp' %>
+
+    <%= f.input :behance, label:'Behance'  %>
+
+    <%= f.input :instagram, label:'Instagram'  %>
+
+    <%= f.input :facebook, label:'Facebook'  %>
+
+
+
+    <div class="form-actions">
+      <%= f.button :submit, t('utils.save'), class: "btn btn-save" %>
+    </div>
+  <% end %>  
+</div>

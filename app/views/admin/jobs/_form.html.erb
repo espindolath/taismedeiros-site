@@ -1,0 +1,46 @@
+<div class="admin-items">
+  <%=simple_form_for [:admin, @job], :validate=>true do |f| %>
+    <% if job.errors.any? %>
+      <div id="error_explanation">
+        <h2><%= pluralize(job.errors.count, "error") %> prohibited this job from being saved:</h2>
+
+        <ul>
+        <% job.errors.full_messages.each do |message| %>
+          <li><%= message %></li>
+        <% end %>
+        </ul>
+      </div>
+    <% end %>
+
+    <div class="input">
+      <label>Capa</label>
+      <div class="image">
+        <%= f.file_field :covers, multiple: true %>
+      </div>
+    </div>
+
+    <div class="input">
+      <label>Imagens do conteúdo</label>
+      <div class="image">
+        <%= f.file_field :images, multiple: true %>
+      </div>
+    </div>
+
+    <%= f.input :title, label:'Título'  %>
+
+    <%= f.input :desc, label:'Descrição'  %>
+
+    <%= f.input :client, label:'Cliente'  %>
+
+    <%= f.input :month, collection: ['01', '02', '03', '04', '05', '06', '07', '08', '09', '10', '11', '12'], label:'Mês', input_html: { class: 'input-field' }   %>
+
+    <%= f.input :year, collection: 2009..2035, label:'Ano', input_html: { class: 'input-field' }   %>
+
+    <%= f.input :words, label:'Palavras Chave'  %>
+    
+
+    <div class="form-actions">
+      <%= f.button :submit, t('utils.save'), class: "btn btn-save" %>
+    </div>
+  <% end %>
+</div>
