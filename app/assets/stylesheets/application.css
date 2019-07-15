@@ -29,6 +29,8 @@ body{
 	background-color: #ffffff;
 	padding: 4em 0em;
 	border-top: 2px solid #333333;
+	border-bottom: 2px solid #333333;
+	min-height: 100vh;
 }
 
 #box-login{

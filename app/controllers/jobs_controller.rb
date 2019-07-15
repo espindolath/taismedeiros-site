@@ -1,6 +1,8 @@
 class JobsController < ApplicationController
   before_action :set_job, only: [:show]
 
+  layout 'application-regular'
+
   def index
     @jobs = Job.order(year: :desc, month: :desc, client: :desc).all
   end
